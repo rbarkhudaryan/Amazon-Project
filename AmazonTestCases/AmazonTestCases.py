@@ -5,8 +5,6 @@ from Amazon.SignInPage import SignInPageClass
 from Amazon.AmazonMainPage import AmazonMainPageClass
 from Amazon.CartSection import CartSectionPageClass
 
-start_time = time.time()
-print(start_time)
 
 class AmazonTestClass(unittest.TestCase):
 
@@ -41,6 +39,4 @@ class AmazonTestClass(unittest.TestCase):
         time.sleep(4)
         self.driver.close()
 
-end_time = time.time()
-print(end_time)
-print('Duration: {}'.format(end_time - start_time))
+
