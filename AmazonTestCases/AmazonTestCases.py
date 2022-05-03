@@ -9,7 +9,7 @@ from Amazon.CartSection import CartSectionPageClass
 class AmazonTestClass(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome("chromedriver.exe")
+        self.driver = webdriver.Chrome("../Common/Drivers/chromedriver.exe")
         self.driver.delete_all_cookies()
         self.driver.maximize_window()
         self.SignInPage = SignInPageClass(self.driver)
@@ -41,8 +41,7 @@ class AmazonTestClass(unittest.TestCase):
         time.sleep(3)
         self.AmazonMainPage.fill_search_field("LS2 Helmets")
         time.sleep(3)
-        self.AmazonMainPage.press_search_button()
-        time.sleep(3)
+
         self.AmazonMainPage.scroll_down()
         time.sleep(3)
         self.AmazonMainPage.open_second_photo()
