@@ -10,7 +10,7 @@ SignInPageSignInButtonLocator = (By.ID, "signInSubmit")
 #Main page
 MainPageCartSectionButtonLocator = (By.ID, "nav-cart-count")
 
-#Card Section
+#Cart Section
 CartSectionDeleteButtonLocator = (By.XPATH, "(//input[@value ='Delete'])[1]")
 CartSectionDeleteButtonLocatorAll = (By.XPATH, "//input[@value='Delete']")
 
