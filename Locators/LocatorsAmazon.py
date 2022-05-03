@@ -17,6 +17,10 @@ CartSectionDeleteButtonLocatorAll = (By.XPATH, "//input[@value='Delete']")
 #MainPage
 AmazonHomePageLocator = (By.ID, "nav-logo-sprites")
 MainPageSearchFieldLocator = (By.ID, "twotabsearchtextbox")
+
+#SearchPage
 SearchButtonLocator = (By.ID, "nav-search-submit-button")
 SecondItemLocator = (By.XPATH, "(//img[@class ='s-image'])[2]")
+
+#ProductDetailPage
 AddToCartButtonLocator = (By.ID, "add-to-cart-button")
