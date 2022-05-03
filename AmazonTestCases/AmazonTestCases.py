@@ -1,10 +1,11 @@
 import time
 from selenium import webdriver
 import unittest
-from Amazon.SignInPage import SignInPageClass
-from Amazon.AmazonMainPage import AmazonMainPageClass
-from Amazon.CartSection import CartSectionPageClass
-
+from AmazonPages.SignInPage import SignInPageClass
+from AmazonPages.MainPage import AmazonMainPageClass
+from AmazonPages.CartSection import CartSectionPageClass
+from AmazonPages.SearchResultsPage import AmazonSearchPageClass
+from AmazonPages.ItemDetailPage import ItemDetailPageClass
 
 class AmazonTestClass(unittest.TestCase):
 
@@ -15,6 +16,8 @@ class AmazonTestClass(unittest.TestCase):
         self.SignInPage = SignInPageClass(self.driver)
         self.AmazonMainPage = AmazonMainPageClass(self.driver)
         self.CartSection = CartSectionPageClass(self.driver)
+        self.SearchPage = AmazonSearchPageClass(self.driver)
+        self.ItemDetailPage = ItemDetailPageClass(self.driver)
 
     def test_amazon_TC(self):
         self.driver.get("https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3Fref_%3Dnav_custrec_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&")
@@ -29,7 +32,6 @@ class AmazonTestClass(unittest.TestCase):
         time.sleep(3)
         self.SignInPage.press_signin_button()
         time.sleep(3)
-
         self.AmazonMainPage.press_cart_section()
         time.sleep(3)
         self.CartSection.press_first_item_delete_button()
@@ -41,12 +43,13 @@ class AmazonTestClass(unittest.TestCase):
         time.sleep(3)
         self.AmazonMainPage.fill_search_field("LS2 Helmets")
         time.sleep(3)
-
-        self.AmazonMainPage.scroll_down()
+        self.AmazonMainPage.press_search_button()
         time.sleep(3)
-        self.AmazonMainPage.open_second_photo()
+        self.SearchPage.scroll_down()
         time.sleep(3)
-        self.AmazonMainPage.click_add_to_cart_Buttton()
+        self.SearchPage.open_second_photo()
+        time.sleep(3)
+        self.ItemDetailPage.click_add_to_cart_Button()
 
     def tearDown(self):
         time.sleep(4)
