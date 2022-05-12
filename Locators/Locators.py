@@ -9,6 +9,8 @@ signInPageSignInButtonLocator = (By.ID, "signInSubmit")
 
 # Main page
 mainPageCartButtonLocator = (By.ID, "nav-cart-count")
+mainPageAccountsListsButtonLocator = (By.ID, "nav-link-accountList")
+mainPageLogOutButtonLocator = (By.ID, "nav-item-signout")
 
 # Cart Section
 cartSectionDeleteButtonLocator = (By.XPATH, "(//input[@value ='Delete'])[1]")
@@ -23,3 +25,4 @@ secondProductLocator = (By.XPATH, "(//img[@class ='s-image'])[2]")
 
 # ProductDetailPage
 addToCartButtonLocator = (By.ID, "add-to-cart-button")
+

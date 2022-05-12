@@ -1,5 +1,5 @@
-from Locators.Locators import *
-from Common.CustomFind import FindElement
+from Locators.Locators import signInPageLoginFieldLocator, signInPageContinueButtonLocator
+from Common.CustomFind.FindElement import FindElement
 
 
 class LoginPageClass():

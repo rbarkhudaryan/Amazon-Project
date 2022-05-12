@@ -13,4 +13,4 @@ class FindElement():
             return element
         except:
             print("ERROR: Can not find element with {} {}".format(by, locator))
-            exit(1)
+            exit(2)

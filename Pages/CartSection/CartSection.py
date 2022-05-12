@@ -1,6 +1,6 @@
 import time
-from Locators.Locators import *
-from Common.CustomFind import FindElement
+from Locators.Locators import cartSectionDeleteButtonLocator, mainPageCartButtonLocator
+from Common.CustomFind.FindElement import FindElement
 
 class CartPageClass():
     def __init__(self, driver):
@@ -19,7 +19,7 @@ class CartPageClass():
                     deleteItemsButton = self.findElement.find(*cartSectionDeleteButtonLocator)
                     deleteItemsButton.click()
                     numberCartItemsCount -= 1
-                    time.sleep(1)
+                    time.sleep(2)
             except:
                 pass
 

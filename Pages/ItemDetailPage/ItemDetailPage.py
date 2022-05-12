@@ -1,5 +1,6 @@
-from Locators.Locators import *
-from Common.CustomFind import FindElement
+import time
+from Locators.Locators import addToCartButtonLocator
+from Common.CustomFind.FindElement import FindElement
 
 class ItemDetailPageClass():
     def __init__(self, driver):
@@ -9,3 +10,4 @@ class ItemDetailPageClass():
     def click_add_to_cart_button(self):
         addToCartButton = self.findElement.find(*addToCartButtonLocator)
         addToCartButton.click()
+

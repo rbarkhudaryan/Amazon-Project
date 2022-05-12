@@ -1,5 +1,6 @@
-from Locators.Locators import *
-from Common.CustomFind import FindElement
+from Locators.Locators import signInPagePasswordFieldLocator, signInPageRememberMeTick, signInPageSignInButtonLocator
+from Common.CustomFind.FindElement import FindElement
+import time
 
 
 class PasswordPageClass():
@@ -10,6 +11,7 @@ class PasswordPageClass():
     def fill_password_field(self, text):
         passwordField = self.findElement.find(*signInPagePasswordFieldLocator)
         passwordField.send_keys(text)
+        time.sleep(2)
 
     def check_remember_me_checkbox(self):
         rememberMeTick = self.findElement.find(*signInPageRememberMeTick)
