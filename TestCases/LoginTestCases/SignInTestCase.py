@@ -1,5 +1,6 @@
 import time
 import unittest
+from Common.Documentations.DataUsed import *
 from Pages.MainPage.MainPage import MainPageClass
 from Pages.CartSection.CartSection import CartPageClass
 from Pages.SearchResultsPage.SearchResultsPage import SearchPageClass
@@ -20,13 +21,12 @@ class SignInTestClass(unittest.TestCase, SetupClass):
         self.itemDetailPage = ItemDetailPageClass(self.driver)
 
     def test_sign_in_TC(self):
-        self.driver.get("https://www.amazon.com/gp/sign-in.html")
-        self.loginPage.fill_login_field("barkhudaryanrosa@gmail.com")
+        self.driver.get(amazonSignInPageUrl)
+        self.loginPage.fill_login_field(loginNameValidInput)
         self.loginPage.press_continue_button()
-        self.passwordPage.fill_password_field("Barkhudaryan1")
+        self.passwordPage.fill_password_field(passwordValidInput)
         self.passwordPage.check_remember_me_checkbox()
         self.passwordPage.press_sign_in_button()
-        self.amazonMainPage.press_log_out_button()
 
     def tearDown(self):
         time.sleep(2)

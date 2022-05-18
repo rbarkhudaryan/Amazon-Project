@@ -8,9 +8,10 @@ from Pages.ItemDetailPage.ItemDetailPage import ItemDetailPageClass
 from Pages.SignInPage.LoginPage import LoginPageClass
 from Pages.SignInPage.PasswordPage import PasswordPageClass
 from Common.Setup.SetupFile import SetupClass
+from Common.CustomFind.FindElement import FindElement
 
 
-class ItemSearchTestClass(unittest.TestCase, SetupClass):
+class SignInTestClass(unittest.TestCase, SetupClass):
     def setUp(self):
         self.setup_general()
         self.loginPage = LoginPageClass(self.driver)
@@ -20,27 +21,14 @@ class ItemSearchTestClass(unittest.TestCase, SetupClass):
         self.searchPage = SearchPageClass(self.driver)
         self.itemDetailPage = ItemDetailPageClass(self.driver)
 
-
-    def test_item_search_TC(self):
+    def test_sign_in_TC(self):
         self.driver.get(amazonSignInPageUrl)
-        self.loginPage.fill_login_field(loginNameValidInput)
+        self.loginPage.fill_login_field(loginNameInvalidInput)
         self.loginPage.press_continue_button()
-        self.passwordPage.fill_password_field(passwordValidInput)
-        self.passwordPage.check_remember_me_checkbox()
-        self.passwordPage.press_sign_in_button()
-        self.amazonMainPage.press_home_button()
-        self.amazonMainPage.fill_search_field(searchInput)
-        self.amazonMainPage.press_search_button()
-        self.searchPage.click_on_second_product()
-        self.itemDetailPage.click_add_to_cart_button()
-        self.amazonMainPage.press_log_out_button()
+        self.assertEqual(self.loginPage.validate_login_page_invalid_functionality().text, "We cannot find an account with that email address", "Error")
 
     def tearDown(self):
         time.sleep(2)
         self.driver.close()
-
-
-
-
 
 

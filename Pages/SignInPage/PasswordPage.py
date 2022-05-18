@@ -1,4 +1,4 @@
-from Locators.Locators import signInPagePasswordFieldLocator, signInPageRememberMeTick, signInPageSignInButtonLocator
+from Locators.Locators import *
 from Common.CustomFind.FindElement import FindElement
 import time
 
@@ -20,3 +20,7 @@ class PasswordPageClass():
     def press_sign_in_button(self):
         signInButton = self.findElement.find(*signInPageSignInButtonLocator)
         signInButton.click()
+
+    def validate_password_page_invalid_functionality(self):
+        element = self.findElement.element_should_be_visible(passwordNameErroeMessageLocator)
+        return element

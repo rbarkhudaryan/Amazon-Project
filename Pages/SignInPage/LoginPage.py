@@ -1,4 +1,4 @@
-from Locators.Locators import signInPageLoginFieldLocator, signInPageContinueButtonLocator
+from Locators.Locators import *
 from Common.CustomFind.FindElement import FindElement
 
 
@@ -15,3 +15,7 @@ class LoginPageClass():
     def press_continue_button(self):
         continueButton = self.findElement.find(*signInPageContinueButtonLocator)
         continueButton.click()
+
+    def validate_login_page_invalid_functionality(self):
+        element = self.findElement.element_should_be_visible(loginNameErroeMessageLocator)
+        return element

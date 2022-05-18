@@ -14,3 +14,10 @@ class FindElement():
         except:
             print("ERROR: Can not find element with {} {}".format(by, locator))
             exit(2)
+
+    def element_should_be_visible(self, locator):
+        try:
+            element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+            return element
+        except:
+            pass
