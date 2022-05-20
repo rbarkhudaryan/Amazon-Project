@@ -1,16 +1,16 @@
 import time
 import unittest
-from Common.Documentations.DataUsed import *
+from Common.Documentations.Variables import *
 from Pages.MainPage.MainPage import MainPageClass
 from Pages.CartSection.CartSection import CartPageClass
 from Pages.SearchResultsPage.SearchResultsPage import SearchPageClass
 from Pages.ItemDetailPage.ItemDetailPage import ItemDetailPageClass
 from Pages.SignInPage.LoginPage import LoginPageClass
 from Pages.SignInPage.PasswordPage import PasswordPageClass
-from Common.Setup.SetupFile import SetupClass
+from Common.SetUp.SetUpFile import SetUpClass
 
 
-class ItemSearchTestClass(unittest.TestCase, SetupClass):
+class ItemDeleteTestClass(unittest.TestCase, SetUpClass):
     def setUp(self):
         self.setup_general()
         self.loginPage = LoginPageClass(self.driver)
@@ -22,7 +22,7 @@ class ItemSearchTestClass(unittest.TestCase, SetupClass):
         self.LoginPage = LoginPageClass(self.driver)
         self.PasswordPage = PasswordPageClass(self.driver)
 
-    def test_item_search_TC(self):
+    def test_item_delete_TC(self):
         self.driver.get(amazonSignInPageUrl)
         self.loginPage.fill_login_field(loginNameValidInput)
         self.loginPage.press_continue_button()
