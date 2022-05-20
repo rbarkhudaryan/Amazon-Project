@@ -16,3 +16,7 @@ class GeneralSuiteClass(unittest.TestSuite):
         return suite
 
 
+if __name__ == "__main__":
+    suiteObject = GeneralSuiteClass()
+    runner = unittest.TextTestRunner()
+    runner.run(suiteObject.generate_suite())
